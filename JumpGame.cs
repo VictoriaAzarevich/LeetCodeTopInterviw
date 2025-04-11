@@ -45,5 +45,20 @@
                 i += nums[i];
             }
         }
+
+        public static bool CanJump1(int[] nums)
+        {
+            int nearestTrue = nums.Length - 1;
+
+            for (int i = nums.Length - 2; i >= 0; i--)
+            {
+                if (i + nums[i] >= nearestTrue)
+                {
+                    nearestTrue = i;
+                }
+            }
+
+            return nearestTrue == 0;
+        }
     }
 }
